@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  default:
+    build:
+      context: ./postgresql
+      args:
+        - POSTGRES_PASSWORD
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  pgadmin:
+    build:
+      context: ./pgadmin
+      args:
+        - PGADMIN_DEFAULT_EMAIL
+        - PGADMIN_DEFAULT_PASSWORD
+    ports:
+      - 80:80
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+
+volumes:
+  db:
+  pgadmin:

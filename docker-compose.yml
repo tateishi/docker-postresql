@@ -17,6 +17,14 @@ services:
     volumes:
       - db14:/var/lib/postgresql/data
 
+  pgsql13:
+    build:
+      context: ./postgresql13
+      args:
+        - POSTGRES_PASSWORD
+    volumes:
+      - db13:/var/lib/postgresql/data
+
   pgadmin:
     build:
       context: ./pgadmin
@@ -31,4 +39,5 @@ services:
 volumes:
   db:
   db14:
+  db13:
   pgadmin:

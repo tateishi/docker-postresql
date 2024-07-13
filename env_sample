@@ -1,0 +1,5 @@
+POSTGRES_PASSWORD=postgres_password
+
+PGADMIN_DEFAULT_EMAIL=me@example.com
+PGADMIN_DEFAULT_PASSWORD=pgadmin_password
+

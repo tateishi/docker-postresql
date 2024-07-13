@@ -6,24 +6,11 @@ services:
       context: ./postgresql
       args:
         - POSTGRES_PASSWORD
+    ports:
+      - 5432:5432
+    restart: always
     volumes:
       - db:/var/lib/postgresql/data
-
-  pgsql14:
-    build:
-      context: ./postgresql14
-      args:
-        - POSTGRES_PASSWORD
-    volumes:
-      - db14:/var/lib/postgresql/data
-
-  pgsql13:
-    build:
-      context: ./postgresql13
-      args:
-        - POSTGRES_PASSWORD
-    volumes:
-      - db13:/var/lib/postgresql/data
 
   pgadmin:
     build:
@@ -33,11 +20,10 @@ services:
         - PGADMIN_DEFAULT_PASSWORD
     ports:
       - 80:80
+    restart: always
     volumes:
       - pgadmin:/var/lib/pgadmin
 
 volumes:
   db:
-  db14:
-  db13:
   pgadmin:
